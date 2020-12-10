@@ -4,16 +4,18 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 
-const getCurrentDate = () => {
+/* const getCurrentDate = () => {
   const date = new Date();
   return date.toDateString();
-};
+}; */
 
 /* const greeting = React.createElement("h1", {}, "Hello from React"); */
-const greeting = <h1>Hello World...date: {getCurrentDate()}</h1>;
+/* const greeting = <h1>Hello World...date: {getCurrentDate()}</h1>; */
 
-ReactDOM.render(greeting, document.getElementById("root"));
+/* ReactDOM.render(greeting, document.getElementById("root")); */
 
+ ReactDOM.render(<App />, document.getElementById("root"));
+ 
 /* ReactDOM.render(
   <React.StrictMode>
     <App />

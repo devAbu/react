@@ -1,23 +1,20 @@
-import logo from './logo.svg';
 import './App.css';
+import Intro from './components/Intro'
+
+/* const Intro = (props) => {
+  return(
+       <p className="App-Intro">
+         Our first functional component</p>
+    )
+} */
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <h1>TV SERIES APP</h1>
       </header>
+      <Intro message="Here you can find all of your most loved series"/>
     </div>
   );
 }
