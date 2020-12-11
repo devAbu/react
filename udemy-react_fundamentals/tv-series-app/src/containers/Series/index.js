@@ -3,6 +3,8 @@ import SeriesList from "../../components/SeriesList";
 class Series extends Component {
   state = {
     series: [],
+    seriesName: "",
+    isFetching: false,
   };
 
   /* Automatically invoked after the component has been rendered  */
@@ -25,22 +27,35 @@ class Series extends Component {
   }
 
   onSeriesInputChange = (e) => {
+    this.setState({ seriesName: e.target.value, isFetching: true });
     /* "http://api.tvmaze.com/search/shows?q=" + e.target.value */
     fetch(`http://api.tvmaze.com/search/shows?q=${e.target.value}`)
       .then((res) => {
         /* console.log(res); */
         return res.json();
       })
-      .then((res) => this.setState({ series: res }));
+      .then((res) => this.setState({ series: res, isFetching: false }));
   };
   render() {
+    const { series, seriesName, isFetching } = this.state;
     return (
       <div>
-        The length of series array: {this.state.series.length}
+        {/* The length of series array: {this.state.series.length} */}
         <div>
-          <input type="text" onChange={this.onSeriesInputChange} />
+          <input
+            value={seriesName}
+            type="text"
+            onChange={this.onSeriesInputChange}
+          />
         </div>
-        <SeriesList list={this.state.series} />
+        {series.length === 0 && seriesName.trim() === "" && (
+          <p>Please enter series name into the input</p>
+        )}
+        {series.length === 0 && seriesName.trim() !== "" && (
+          <p>No series found with this name</p>
+        )}
+        {isFetching && <p>Loading...</p>}
+        {!isFetching && <SeriesList list={this.state.series} />}
       </div>
     );
   }
