@@ -2,7 +2,7 @@ import React from "react";
 import "./index.css";
 
 const SeriesListItem = ({ series }) => {
-  return <li key={series.show.id}>{series.show.name}</li>;
+  return <li>{series.show.name}</li>;
 };
 
 const SeriesList = (props) => {
@@ -22,9 +22,8 @@ const SeriesList = (props) => {
       <ul className="series-list">
         {props.list.map((series) => {
           /* return <li key={series.show.id}>{series.show.name}</li>; */
-          return <SeriesListItem series={series} />;
+          return <SeriesListItem series={series} key={series.show.id} />;
         })}
-        ;
       </ul>
     </div>
   );

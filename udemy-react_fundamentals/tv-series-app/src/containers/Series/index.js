@@ -15,19 +15,31 @@ class Series extends Component {
       this.setState({ series });
       /* {series: series } -- modern js = {series} 
     }, 2000);*/
-
     /* Promises = .then */
-    fetch("http://api.tvmaze.com/search/shows?q=Vikings")
+    /* fetch("http://api.tvmaze.com/search/shows?q=Vikings")
+      .then((res) => {
+        /* console.log(res); *
+        return res.json();
+      })
+      .then((res) => this.setState({ series: res })); */
+  }
+
+  onSeriesInputChange = (e) => {
+    /* "http://api.tvmaze.com/search/shows?q=" + e.target.value */
+    fetch(`http://api.tvmaze.com/search/shows?q=${e.target.value}`)
       .then((res) => {
         /* console.log(res); */
         return res.json();
       })
       .then((res) => this.setState({ series: res }));
-  }
+  };
   render() {
     return (
       <div>
         The length of series array: {this.state.series.length}
+        <div>
+          <input type="text" onChange={this.onSeriesInputChange} />
+        </div>
         <SeriesList list={this.state.series} />
       </div>
     );
