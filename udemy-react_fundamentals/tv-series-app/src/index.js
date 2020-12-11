@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
-import App from "./App";
+import App from "./components/App";
 import reportWebVitals from "./reportWebVitals";
 
 /* const getCurrentDate = () => {
@@ -14,8 +14,8 @@ import reportWebVitals from "./reportWebVitals";
 
 /* ReactDOM.render(greeting, document.getElementById("root")); */
 
- ReactDOM.render(<App />, document.getElementById("root"));
- 
+ReactDOM.render(<App />, document.getElementById("root"));
+
 /* ReactDOM.render(
   <React.StrictMode>
     <App />
