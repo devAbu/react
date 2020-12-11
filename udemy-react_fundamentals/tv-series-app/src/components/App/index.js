@@ -1,7 +1,8 @@
 import "./index.css";
 import { Component } from "react";
-import Intro from "../Intro";
-import Series from "../../containers/Series";
+/* import Intro from "../Intro"; */
+/* import Series from "../../containers/Series"; */
+import Main from "../Main";
 import "whatwg-fetch"; //send request
 
 /* const Intro = (props) => {
@@ -18,8 +19,8 @@ class App extends Component {
         <header className="App-header">
           <h1>TV SERIES APP</h1>
         </header>
-        <Intro message="Here you can find all of your most loved series" />
-        <Series />
+        {/* <Intro message="Here you can find all of your most loved series" /> */}
+        <Main />
       </div>
     );
   }
