@@ -1,7 +1,7 @@
 function Todo(props) {
   function deleteHandler() {
-    console.log("deleteHandler called");
-    console.log(props.title);
+    /* console.log("deleteHandler called");
+    console.log(props.title); */
   }
 
   return (
